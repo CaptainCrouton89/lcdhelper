@@ -71,7 +71,7 @@ class LCD():
         s = strings + padding
         for i in range(len(s) - self._num_cols + 1):
             framebuffer[row] = s[i:i+self._num_cols]
-            self.write_to_lcd(self.lcd, framebuffer)
+            self.write_to_lcd(framebuffer)
             time.sleep(delay)
 
         
