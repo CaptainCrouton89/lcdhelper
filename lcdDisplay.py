@@ -90,11 +90,11 @@ class LCD():
 
 if __name__ == '__main__':
     char_lcd = CharLCD(numbering_mode=GPIO.BOARD, cols=16, rows=2, pin_rs=26, pin_e=24, pins_data=[22, 18, 16, 12])
-    # lcd.write_string(u'Hello world!')
+    char_lcd.write_string(u'Hello world!')
 
-    lcd = LCD(char_lcd)
-    lcd.clear()
-    lcd.text = "Hello world"
-    lcd._init_scroll()
-    lcd.start_scroll()
+    # lcd = LCD(char_lcd)
+    # lcd.clear()
+    # lcd.text = "Hello world"
+    # lcd._init_scroll()
+    # lcd.start_scroll()
 
