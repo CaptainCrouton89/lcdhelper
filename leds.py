@@ -12,21 +12,24 @@ GPIO.setup(LED_R_PIN, GPIO.OUT)
 GPIO.setup(LED_Y_PIN, GPIO.OUT)
 GPIO.setup(LED_G_PIN, GPIO.OUT)
 GPIO.setup(LED_B_PIN, GPIO.OUT)
+print("Using GPIO.BOARD configuration")
   
-try:  
-    while True:  
-        GPIO.output(LED_R_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
-        sleep(0.5)                 # wait half a second  
-        GPIO.output(LED_R_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
-        GPIO.output(LED_Y_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
-        sleep(0.5)                 # wait half a second  
-        GPIO.output(LED_Y_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
-        GPIO.output(LED_G_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
-        sleep(0.5)                 # wait half a second  
-        GPIO.output(LED_G_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
-        GPIO.output(LED_B_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
-        sleep(0.5)                 # wait half a second  
-        GPIO.output(LED_B_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
-  
-except KeyboardInterrupt:          # trap a CTRL+C keyboard interrupt  
-    GPIO.cleanup()                 # resets all GPIO ports used by this program  
+
+if __name__ == '__main__':
+    try:  
+        while True:  
+            GPIO.output(LED_R_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
+            sleep(0.5)                 # wait half a second  
+            GPIO.output(LED_R_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
+            GPIO.output(LED_Y_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
+            sleep(0.5)                 # wait half a second  
+            GPIO.output(LED_Y_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
+            GPIO.output(LED_G_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
+            sleep(0.5)                 # wait half a second  
+            GPIO.output(LED_G_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
+            GPIO.output(LED_B_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
+            sleep(0.5)                 # wait half a second  
+            GPIO.output(LED_B_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
+    
+    except KeyboardInterrupt:          # trap a CTRL+C keyboard interrupt  
+        GPIO.cleanup()                 # resets all GPIO ports used by this program  
