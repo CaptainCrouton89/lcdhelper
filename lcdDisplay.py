@@ -118,7 +118,7 @@ if __name__ == '__main__':
     ]
     long_string = "This statement is simply way too long to display"
     while True:
-        lcd.loop_string(long_string, framebuffer, 1, .4)
+        lcd.loop_string(long_string, framebuffer, 1, .3)
     # lcd.display()
     # lcd._init_scroll()
     # lcd.start_scroll()
