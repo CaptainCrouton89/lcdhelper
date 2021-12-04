@@ -18,19 +18,15 @@ try:
         GPIO.output(LED_R_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
         sleep(0.5)                 # wait half a second  
         GPIO.output(LED_R_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
-        sleep(0.5)                 # wait half a second  
         GPIO.output(LED_Y_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
         sleep(0.5)                 # wait half a second  
         GPIO.output(LED_Y_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
-        sleep(0.5)
         GPIO.output(LED_G_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
         sleep(0.5)                 # wait half a second  
         GPIO.output(LED_G_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
-        sleep(0.5)
         GPIO.output(LED_B_PIN, 1)         # set GPIO24 to 1/GPIO.HIGH/True  
         sleep(0.5)                 # wait half a second  
         GPIO.output(LED_B_PIN, 0)         # set GPIO24 to 0/GPIO.LOW/False  
-        sleep(0.5)
   
 except KeyboardInterrupt:          # trap a CTRL+C keyboard interrupt  
     GPIO.cleanup()                 # resets all GPIO ports used by this program  
