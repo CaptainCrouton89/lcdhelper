@@ -64,8 +64,8 @@ class LCD():
         self.scroll_speed = kwargs["scroll_speed"]
         self.start_pause = kwargs["start_pause"]
         self.scrolling = threading.Thread(target=self._scroll_text, daemon=True)
-        self.scrolling.start()
         self.scrolling.exit = False
+        self.scrolling.start_scroll()
 
     def start_scroll(self):
         self.scrolling.is_scrolling = True
@@ -88,3 +88,9 @@ class LCD():
                 time.sleep(self._speed)
                 if self.scrolling.exit == True:
                     break
+
+if __name__ == '__main__':
+    lcd = LCD()
+    lcd.text = "Hello world"
+    lcd._init_scroll()
+
