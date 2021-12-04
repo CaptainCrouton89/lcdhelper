@@ -64,7 +64,7 @@ class LCD():
         """
         self.scrolling = threading.Thread(target=self._scroll_text, daemon=True)
         self.scrolling.exit = False
-        self.scrolling.start_scroll()
+        self.start_scroll()
 
     def start_scroll(self):
         self.scrolling.is_scrolling = True
