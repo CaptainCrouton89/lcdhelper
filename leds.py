@@ -2,7 +2,7 @@ import RPi.GPIO as GPIO
 from time import sleep
 import random
 
-GPIO.setmode(GPIO.BCM)             # choose BCM or BOARD  
+GPIO.setmode(GPIO.BOARD)             # choose BCM or BOARD  
 GPIO.setup(40, GPIO.OUT)           # set GPIO24 as an output   
   
 try:  
