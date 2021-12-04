@@ -1,5 +1,6 @@
 #! /usr/bin/python
 from Adafruit_CharLCD import Adafruit_CharLCD
+from RPLCD import CharLCD
 import time
 import threading
 
@@ -90,7 +91,7 @@ class LCD():
                     break
 
 if __name__ == '__main__':
-    lcd = Adafruit_CharLCD(cols=16, rows=2, pin_rs=7, pin_e=8, pins_data=[18, 23, 24, 25])
+    lcd = CharLCD(cols=16, rows=2, pin_rs=7, pin_e=8, pins_data=[18, 23, 24, 25])
     lcd.write_string(u'Hello world!')
 
     # lcd = LCD(Adafruit_CharLCD())
