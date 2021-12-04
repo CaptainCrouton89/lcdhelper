@@ -13,7 +13,10 @@ GPIO.setup(LED_Y_PIN, GPIO.OUT)
 GPIO.setup(LED_G_PIN, GPIO.OUT)
 GPIO.setup(LED_B_PIN, GPIO.OUT)
 print("Using GPIO.BOARD configuration")
-  
+
+def set_led_state(led_pin, state: int):
+    """State should be either 1 or 0 for high or low voltage"""
+    GPIO.output(led_pin, state)
 
 if __name__ == '__main__':
     try:  
