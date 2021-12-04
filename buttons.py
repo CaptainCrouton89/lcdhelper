@@ -2,9 +2,9 @@ import RPi.GPIO as GPIO
 from time import sleep
 import random
 
-BUTTON_L_PIN = 11
-BUTTON_C_PIN = 13
-BUTTON_R_PIN = 15
+BUTTON_L_PIN = 13
+BUTTON_C_PIN = 15
+BUTTON_R_PIN = 11
 
 def button_callback_L(channel):
     print("L Button was pushed!")
