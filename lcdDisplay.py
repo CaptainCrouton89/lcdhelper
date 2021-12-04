@@ -51,12 +51,11 @@ class LCD():
     def clear(self):
         self.lcd.clear()
 
-    def display(self, state):
-        if state:
-            self.lcd.displaydisplay()
-        else:
-            self.lcd.noDisplay()
-
+    def display(self):
+        self.lcd.clear()
+        self.home()
+        self.lcd.write_string(self._text)
+        
     def _init_scroll(self) -> None:
         """Plays message on repeat
         speed: amount of time spent before next character is shown
@@ -90,11 +89,12 @@ class LCD():
 
 if __name__ == '__main__':
     char_lcd = CharLCD(numbering_mode=GPIO.BOARD, cols=16, rows=2, pin_rs=26, pin_e=24, pins_data=[22, 18, 16, 12])
-    char_lcd.write_string(u'Hello world!')
+    # char_lcd.write_string(u'Hello world!')
 
-    # lcd = LCD(char_lcd)
-    # lcd.clear()
-    # lcd.text = "Hello world"
-    # lcd._init_scroll()
-    # lcd.start_scroll()
+    lcd = LCD(char_lcd)
+    lcd.clear()
+    lcd.text = "Hello world"
+    lcd.display()
+    lcd._init_scroll()
+    lcd.start_scroll()
 
