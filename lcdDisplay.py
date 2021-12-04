@@ -8,12 +8,15 @@ import threading
 class LCD():
     """LCD Helper class for controlling the Adafruit 16x2 LCD screen"""
 
-    def __init__(self, lcd) -> None:
+    def __init__(self, lcd, cols=16) -> None:
         self.lcd = lcd
         self.scrolling = None
+        self._num_cols = cols
         self._text: str = ""
         self._scroll_speed: float = 0.3
         self._start_pause: float = 0.5
+        self.clear()
+        self.home()
 
     @property
     def text(self):
@@ -55,6 +58,22 @@ class LCD():
         self.lcd.clear()
         self.home()
         self.lcd.write_string(self._text)
+
+    def write_to_lcd(self, framebuffer):
+        """Write the framebuffer out to the specified LCD."""
+        lcd.home()
+        for row in framebuffer:
+            self.lcd.write_string(row.ljust(self._num_cols)[:self._num_cols])
+            self.lcd.write_string('\r\n')
+
+    def loop_string(self, strings, framebuffer, row, delay=0.2):
+        padding = ' ' * self._num_cols
+        s = strings + padding
+        for i in range(len(s) - self._num_cols + 1):
+            framebuffer[row] = s[i:i+self._num_cols]
+            self.write_to_lcd(self.lcd, framebuffer)
+            time.sleep(delay)
+
         
     def _init_scroll(self) -> None:
         """Plays message on repeat
@@ -78,7 +97,7 @@ class LCD():
     def _scroll_text(self):
         self.clear()
         self.home()
-        self.lcd.message = self.text
+        self.lcd.write_string(self._text)
         while self.scrolling.is_scrolling:
             time.sleep(self._start_pause)
             for i in range(len(self._text) - 16):
@@ -93,8 +112,16 @@ if __name__ == '__main__':
 
     lcd = LCD(char_lcd)
     lcd.clear()
-    lcd.text = "Hello world"
-    lcd.display()
-    lcd._init_scroll()
-    lcd.start_scroll()
+    framebuffer = [
+        "Hello world",
+        ""
+    ]
+    long_string = "This statement is simply way too long to display"
+    while True:
+        lcd.loop_string(long_string, lcd, framebuffer, 1)
+    # lcd.display()
+    # lcd._init_scroll()
+    # lcd.start_scroll()
+
+    lcd.clear()
 
