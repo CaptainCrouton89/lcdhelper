@@ -18,6 +18,7 @@ def close(all_pwm):
     GPIO.cleanup()
 
 
+GPIO.setmode(GPIO.BOARD)
 pwmR = setup_led_at_pin(40)
 setColor(pwmR, 100)
 time.sleep(4)
