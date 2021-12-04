@@ -90,7 +90,10 @@ class LCD():
                     break
 
 if __name__ == '__main__':
-    lcd = LCD()
-    lcd.text = "Hello world"
-    lcd._init_scroll()
+    lcd = Adafruit_CharLCD(cols=16, rows=2, pin_rs=7, pin_e=8, pins_data=[18, 23, 24, 25])
+    lcd.write_string(u'Hello world!')
+
+    # lcd = LCD(Adafruit_CharLCD())
+    # lcd.text = "Hello world"
+    # lcd._init_scroll()
 
