@@ -92,7 +92,7 @@ class LCD():
                     break
 
 if __name__ == '__main__':
-    lcd = CharLCD(numbering_mode=GPIO.BOARD, cols=16, rows=2, pin_rs=7, pin_e=8, pins_data=[18, 23, 24, 25])
+    lcd = CharLCD(numbering_mode=GPIO.BOARD, cols=16, rows=2, pin_rs=26, pin_e=24, pins_data=[22, 18, 16, 12])
     lcd.write_string(u'Hello world!')
 
     # lcd = LCD(Adafruit_CharLCD())
