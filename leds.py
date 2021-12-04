@@ -9,7 +9,7 @@ def setup_led_at_pin(pin):
     pwm.start(0)
     return pwm
 
-def setColor(pwm, val):  # 0 ~ 100 values since 0 ~ 100 only for duty cycle
+def setBrightness(pwm, val):  # 0 ~ 100 values since 0 ~ 100 only for duty cycle
     pwm.ChangeDutyCycle(val)
 
 def close(all_pwm):
@@ -17,9 +17,11 @@ def close(all_pwm):
         pwm.close()
     GPIO.cleanup()
 
+def on(pwm):
+    GPIO.output(40, 1)
 
 GPIO.setmode(GPIO.BOARD)
 pwmR = setup_led_at_pin(40)
-setColor(pwmR, 100)
+on(pwmR)
 time.sleep(4)
 close(pwmR)
