@@ -57,13 +57,11 @@ class LCD():
         else:
             self.lcd.noDisplay()
 
-    def _init_scroll(self, **kwargs) -> None:
+    def _init_scroll(self) -> None:
         """Plays message on repeat
         speed: amount of time spent before next character is shown
         start_pause: how long to leave at start message before scrolling
         """
-        self.scroll_speed = kwargs["scroll_speed"]
-        self.start_pause = kwargs["start_pause"]
         self.scrolling = threading.Thread(target=self._scroll_text, daemon=True)
         self.scrolling.exit = False
         self.scrolling.start_scroll()
