@@ -1,6 +1,5 @@
-#! /usr/bin/python
-from RPLCD import CharLCD
-from RPi import GPIO
+from RPLCD import CharLCD # type: ignore
+from RPi import GPIO # type: ignore
 import time
 import threading
 

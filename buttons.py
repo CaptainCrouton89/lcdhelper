@@ -1,4 +1,4 @@
-import RPi.GPIO as GPIO
+import RPi.GPIO as GPIO # type: ignore
 
 BUTTON_L_PIN = 13
 BUTTON_C_PIN = 15
